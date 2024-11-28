@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1); // Déclare le mode strict pour les types de données
+declare(strict_types=1); 
 
-require __DIR__ . '/../vendor/autoload.php'; // Charge automatiquement les classes nécessaires via Composer
+require __DIR__ . '/../vendor/autoload.php'; 
 
-use App\Core\Router; // Utilise la classe Router du namespace App\Core
+use App\Core\Router; 
 
 // FRONT-CONTROLLER
-$router = new Router(); // Crée une nouvelle instance de la classe Router
-$router->route(); // Appelle la méthode route() pour gérer les requêtes entrantes
+$router = new Router(); 
+$router->route(); 

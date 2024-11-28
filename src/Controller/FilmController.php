@@ -13,8 +13,6 @@ class FilmController
     {
         $filmRepository = new FilmRepository();
         $films = $filmRepository->findAll();
-
-        // Rendre la vue 'list.html.twig' avec les films
         echo $twig->render('list.html.twig', [
             'title' => 'Films',
             'films' => $films
