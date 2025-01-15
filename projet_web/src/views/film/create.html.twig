@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter ou Modifier un Film{% endblock %}
+
+{% block content %}
+    <!-- Inclure Bootstrap 5.3 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 text-dark fw-bold">
+            {% if film is defined %}
+                Modifier le film
+            {% else %}
+                Ajouter un film
+            {% endif %}
+        </h1>
+
+        <!-- Formulaire épuré -->
+        <form action="{{ actionUrl }}" method="POST" class="p-4 border rounded-3">
+            <div class="mb-3">
+                <label for="titre" class="form-label">Titre</label>
+                <input type="text" id="titre" name="titre" class="form-control" value="{{ film.titre ?? '' }}" placeholder="Entrez le titre" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="annee" class="form-label">Année</label>
+                <input type="number" id="annee" name="annee" class="form-control" value="{{ film.annee ?? '' }}" placeholder="Entrez l'année" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <input type="text" id="type" name="type" class="form-control" value="{{ film.type ?? '' }}" placeholder="Exemple : Comédie, Drame" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="realisateur" class="form-label">Réalisateur</label>
+                <input type="text" id="realisateur" name="realisateur" class="form-control" value="{{ film.realisateur ?? '' }}" placeholder="Nom du réalisateur" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="synopsis" class="form-label">Synopsis</label>
+                <textarea id="synopsis" name="synopsis" class="form-control" rows="4" placeholder="Entrez le synopsis" required>{{ film.synopsis ?? '' }}</textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark px-5 py-2">
+                    {% if film is defined %}
+                        Modifier
+                    {% else %}
+                        Ajouter
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Inclure les scripts Bootstrap 5.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
